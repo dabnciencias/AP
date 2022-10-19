@@ -1,0 +1,194 @@
+\documentclass[a4paper]{article}
+
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{amsmath,amsthm,amssymb,tabu}
+\usepackage[spanish,es-tabla]{babel}
+\decimalpoint
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[hyphens]{url}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\setcounter{section}{-1}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{braket}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usetikzlibrary{cd}
+\usepackage{pgfplots}
+\usepackage{caption}
+\usepackage{subcaption}
+\usetikzlibrary{babel}
+
+\definecolor{NARANJA}{rgb}{1,0.467,0}
+\definecolor{VERDE}{rgb}{0.31,1,0}
+\definecolor{AZUL}{rgb}{0,0.53,1}
+\definecolor{ROJO}{rgb}{1,0,0}
+
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=ROJO,
+    filecolor=magenta,
+    urlcolor=AZUL,
+}
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{teorema}[2][Teorema]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lema}[2][Lema]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corolario}[2][Corolario]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+
+\pgfplotsset{compat=1.15}
+
+\begin{document}
+\title{Seminario de Aplicaciones de Cómputo \\ Animación Programática (con Python, \\ Manim y Programación Orientada a Objetos) }
+\author{M. en C. Diego Alberto Barceló Nieves \\ Facultad de Ciencias, Universidad Nacional Autónoma de México}
+\date{}
+\maketitle
+
+\section*{Objetivo general} \label{Sec: Objetivo general}
+
+Aprender a visualizar y animar conceptos matemáticos de forma precisa utilizando la librería \hyperlink{https://www.manim.community/}{Manim} de \hyperlink{https://www.python.org/}{Python}.
+
+\section*{Objetivos específicos} \label{Sec: Objetivos específicos}
+
+\begin{enumerate}
+
+    \item Aprender la sintáxis básica del lenguaje de programación Python.
+
+    \item Entender el paradigma de Programación Orientada a Objetos y poder aplicarlo, creando clases o atributos nuevos cuando sea necesario.
+
+    \item Aprender a realizar animaciones precisas (programadas mediante un \emph{script} de Python) en temas fundamentales de las matemáticas tales como geometría analítica, álgebra lineal, cálculo diferencial e integral, ecuaciones diferenciales, etc.
+
+    \item Entender principios de diseño del \emph{software} Manim.
+
+    \item Aprender a utilizar, modificar y contribuir a proyectos de \emph{software} de código abierto (\hyperlink{https://github.com/ManimCommunity/manim}{como Manim}).
+\end{enumerate}
+
+\setcounter{section}{-1}
+
+\section{Introducción a Python} \label{Sec: Introducción a la programación (2 semanas)} 
+
+\begin{enumerate}[label=\arabic*.]
+
+    \item Sintáxis básica, arreglos, variables y diccionarios. (Mutabilidad e inmutabilidad)
+
+    \item Funciones con cantidades variables de parámetros. (\texttt{*args} y \texttt{**kwargs})
+
+    \item Clases y objetos. (Parámetros y atributos)
+
+    \item Subclases. (Herencia y polimorfismo)
+\end{enumerate}
+
+\section{Introducción a Manim} \label{Sec: Introducción a Manim}
+
+\begin{enumerate}
+
+    \item Instalación, uso básico y clases fundamentales.
+
+    \item Escenas. (Introducción a la clase \texttt{Scene})
+
+    \item Objetos animables vectorizados. (\texttt{Mobject -> \ VMobject}\footnote{Utilizamos el formato \texttt{A -> \ B} para indicar que \texttt{B} es una subclase directa de \texttt{A} en el sentido de la Programación Orientada a Objetos.} y ejemplos como \texttt{Triangle}, \texttt{Rectangle} y \texttt{Circle})
+
+    \item Escritura de texto y \LaTeX. (\texttt{Mobject -> \ VMobject -> \ SVGMobject ->} \{\texttt{Text} y \texttt{SingleStringMathTex -> \ MathTex}\}\footnote{El formato \texttt{A -> \ \{B, C} y \texttt{D}\} indica que \texttt{B}, \texttt{C} y \texttt{D} son subclases directas de \texttt{A}.})
+
+    \item Configuración. (Introducción a la clase \texttt{ManimConfig})
+\end{enumerate}
+
+\section{Escenas geométricas en dos dimensiones} \label{Sec: Escenas geométricas en dos dimensiones}
+
+\begin{enumerate}
+
+\item Plano cartesiano, puntos y líneas (\texttt{NumberPlane}, \texttt{Dot} y \texttt{VMobject -> \ TypableVMobject ->} \{\texttt{Line} y \texttt{Arc}\})
+
+    \item Polígonos. (\texttt{VMobject -> \ Polygram -> \ Polygon})
+
+    \item Sistemas coordenados. (\texttt{ParametricFunction -> \ NumberLine}, \texttt{NumberPlane <-} \{\texttt{Axes} y \texttt{CoordinateSystems}\}\footnote{Utilizamos el formato \texttt{Z <-} \{\texttt{W}, \texttt{X} y \texttt{Y}\} para indicar que \texttt{W}, \texttt{X} y \texttt{Y} son supclases (o ``súper clases'') directas de \texttt{Z}.} y \texttt{NumberPlane -> \ ComplexPlane})
+
+    \item Curvas y gráficas.
+\end{enumerate}
+
+\section{Cámaras móviles en dos dimensiones} \label{Sec: Cámaras móviles en dos dimensiones}
+
+\begin{enumerate}
+
+    \item Movimiento de cámara. (\texttt{Scene -> \ MovingCameraScene} y \texttt{Camera -> \ MovingCamera})
+
+    \item Acercamiento y alejamiento de cámara. (\texttt{MovingCameraScene -> \ ZoomedScene}) 
+
+    \item Múltiples cámaras. (\texttt{MovingCamera -> \ MultiCamera})
+\end{enumerate}
+
+\section{Escenas vectoriales en dos dimensiones} \label{Sec: Escenas vectoriales en dos dimensiones}
+
+\begin{enumerate}
+
+\item Flechas y vectores flecha. (\texttt{Line -> \ Arrow ->} \{\texttt{DoubleArrow} y \texttt{Vector}\})
+
+\item Escenas vectoriales. (\texttt{Scene -> \ VectorScene})
+
+\item Transformaciones lineales. (\texttt{VectorScene -> \ LinearTransformationScene})
+
+\item Campos vectoriales. (\texttt{VMobject -> \ SVGPathMobject -> \ VectorField ->} \{\texttt{StreamLines} y \texttt{ArrowVectorField}\})
+\end{enumerate}
+
+\section{Escenas en tres dimensiones} \label{Sec: Escenas en tres dimensiones}
+
+\begin{enumerate}
+
+    \item Escena y cámara tridimensionales (\texttt{Scene -> \ ThreeDScene} y \texttt{Camera -> \ ThreeDCamera})
+
+    \item Puntos, curvas y superficies en 3D.
+
+    \item Líneas y flechas en 3D.
+
+    \item Texto en 3D.
+\end{enumerate}
+
+\section*{Bibliografía básica} \label{Sec: Bibliografía básica}
+
+\begin{enumerate}
+
+    \item \href{https://docs.manim.community/en/stable/index.html}{Documentación de Manim Community Edition.}
+
+    %\item Repositorio de GitHub \href{}{dabnciencias/AP}.
+
+    \item Deitel y Deitel,  \emph{Intro to Python for Computer Science and Data Science} (2021).
+\end{enumerate}
+
+\section*{Bibliografía complementaria} \label{Sec: Bibliografía complementaria}
+
+\begin{enumerate}
+
+    \item Repositorio de GitHub \href{https://github.com/animathica/seminario}{animathica/seminario}.
+
+    \item Lista de reproducción \href{https://www.youtube.com/playlist?list=PLcjmqHFN9VeMC9znnNiRMv3nqZv-bU9Fo}{\emph{Tutorial de Manim en español}} del canal de YouTube ``El teorema de Beethoven''.
+
+    \item \href{https://www.python.org/doc/}{Documentación de Python}.
+
+    \item Página web \href{https://www.geeksforgeeks.org/python-programming-language/}{GeeksforGeeks}.
+
+    \item \href{https://docs.jupyter.org/en/latest/}{Documentación de Jupyter}.
+\end{enumerate}
+
+
+\end{document}
