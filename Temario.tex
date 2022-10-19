@@ -65,32 +65,34 @@
 \date{}
 \maketitle
 
+\textbf{Nota} Dado que este no es un curso introductorio de programación, al elaborar el siguiente temario asumimos que quienes tomarán el curso tienen algún tipo de experiencia previa programando; sin embargo, no asumimos que tengan familiaridad con el lenguaje de programación \hyperlink{https://www.python.org/}{Python}, la librería \hyperlink{https://www.manim.community/}{Manim}, ni el paradigma de la \hyperlink{https://developer.mozilla.org/es/docs/Glossary/OOP}{Programación Orientada a Objetos}.
+
 \section*{Objetivo general} \label{Sec: Objetivo general}
 
-Aprender a visualizar y animar conceptos matemáticos de forma precisa utilizando la librería \hyperlink{https://www.manim.community/}{Manim} de \hyperlink{https://www.python.org/}{Python}.
+Aprender a visualizar y animar conceptos matemáticos de forma altamente precisa utilizando herramientas de programación.
 
 \section*{Objetivos específicos} \label{Sec: Objetivos específicos}
 
 \begin{enumerate}
 
-    \item Aprender la sintáxis básica del lenguaje de programación Python.
+    \item Aprender el uso básico del lenguaje de programación Python.
 
     \item Entender el paradigma de Programación Orientada a Objetos y poder aplicarlo, creando clases o atributos nuevos cuando sea necesario.
 
-    \item Aprender a realizar animaciones precisas (programadas mediante un \emph{script} de Python) en temas fundamentales de las matemáticas tales como geometría analítica, álgebra lineal, cálculo diferencial e integral, ecuaciones diferenciales, etc.
+    \item Entender los principios de diseño del \emph{software} Manim.
 
-    \item Entender principios de diseño del \emph{software} Manim.
+    \item Aprender a realizar animaciones precisas (programadas mediante un \emph{script} de Python y usando la librería Manim) para representar conceptos en áreas fundamentales de las matemáticas tales como geometría analítica, álgebra lineal, cálculo diferencial e integral y ecuaciones diferenciales, entre otras.
 
-    \item Aprender a utilizar, modificar y contribuir a proyectos de \emph{software} de código abierto (\hyperlink{https://github.com/ManimCommunity/manim}{como Manim}).
+    \item Aprender a instalar, utilizar, modificar y contribuir a proyectos de \emph{software} de código abierto (\hyperlink{https://github.com/ManimCommunity/manim}{como Manim}).
 \end{enumerate}
 
 \setcounter{section}{-1}
 
-\section{Introducción a Python} \label{Sec: Introducción a la programación (2 semanas)} 
+\section{Introducción a Python y Programación Orientada a Objetos} \label{Sec: Introducción a Python y Programación Orientada a Objetos} 
 
 \begin{enumerate}[label=\arabic*.]
 
-    \item Sintáxis básica, arreglos, variables y diccionarios. (Mutabilidad e inmutabilidad)
+    \item Sintáxis y tipos de datos básicos. (Tipos de datos numéricos y de texto, listas y diccionarios, mutabilidad e inmutabilidad)
 
     \item Funciones con cantidades variables de parámetros. (\texttt{*args} y \texttt{**kwargs})
 
@@ -103,65 +105,77 @@ Aprender a visualizar y animar conceptos matemáticos de forma precisa utilizand
 
 \begin{enumerate}
 
-    \item Instalación, uso básico y clases fundamentales.
+    \item Instalación y uso básico.
 
-    \item Escenas. (Introducción a la clase \texttt{Scene})
+    \item Clases fundamentales. (Introducción a las clases \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.mobject.mobject.Mobject.html}{\texttt{Mobject}}, \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.scene.scene.Scene.html}{\texttt{Scene}}, \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.camera.camera.Camera.html?highlight=Camera}{\texttt{Camera}} y \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.animation.animation.Animation.html#}{\texttt{Animation}})
 
-    \item Objetos animables vectorizados. (\texttt{Mobject -> \ VMobject}\footnote{Utilizamos el formato \texttt{A -> \ B} para indicar que \texttt{B} es una subclase directa de \texttt{A} en el sentido de la Programación Orientada a Objetos.} y ejemplos como \texttt{Triangle}, \texttt{Rectangle} y \texttt{Circle})
+    \item Objetos animables vectorizados y grupos de objetos animables vectorizados. (\texttt{Mobject -> \ \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.mobject.types.vectorized_mobject.VMobject.html?highlight=VMobject}{VMobject}}\footnote{Utilizamos el formato \texttt{A -> \ B} para indicar que \texttt{B} es una subclase directa de \texttt{A} en el sentido de la Programación Orientada a Objetos.}, ejemplos como \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.mobject.geometry.polygram.Triangle.html?highlight=Triangle}{\texttt{Triangle}}, \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.mobject.geometry.polygram.Rectangle.html?highlight=Rectangle}{\texttt{Rectangle}} y \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.mobject.geometry.arc.Circle.html?highlight=Circle}{\texttt{Circle}}, y \texttt{VMobject -> \ \href{https://docs.manim.community/en/v0.16.0/reference/manim.mobject.types.vectorized_mobject.VGroup.html?highlight=VGroup}{VGroup}})
 
-    \item Escritura de texto y \LaTeX. (\texttt{Mobject -> \ VMobject -> \ SVGMobject ->} \{\texttt{Text} y \texttt{SingleStringMathTex -> \ MathTex}\}\footnote{El formato \texttt{A -> \ \{B, C} y \texttt{D}\} indica que \texttt{B}, \texttt{C} y \texttt{D} son subclases directas de \texttt{A}.})
+    \item Escritura de texto y \LaTeX. (\texttt{Mobject -> \ VMobject -> \ SVGMobject -> \ \{\href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.mobject.text.text_mobject.Text.html?highlight=Text}{Text}} y \texttt{SingleStringMathTex -> \ \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.mobject.text.tex_mobject.MathTex.html?highlight=MathTex}{MathTex}\}}\footnote{El formato \texttt{A -> \ \{B, C} y \texttt{D\}} indica que \texttt{B}, \texttt{C} y \texttt{D} son subclases directas de \texttt{A}.})
 
-    \item Configuración. (Introducción a la clase \texttt{ManimConfig})
+    \item Configuración. (Introducción a la clase \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim._config.utils.ManimConfig.html?highlight=ManimConfig}{\texttt{ManimConfig}})
 \end{enumerate}
 
 \section{Escenas geométricas en dos dimensiones} \label{Sec: Escenas geométricas en dos dimensiones}
 
 \begin{enumerate}
 
-\item Plano cartesiano, puntos y líneas (\texttt{NumberPlane}, \texttt{Dot} y \texttt{VMobject -> \ TypableVMobject ->} \{\texttt{Line} y \texttt{Arc}\})
+    \item Plano cartesiano, puntos y líneas. (\href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.mobject.graphing.coordinate_systems.NumberPlane.html?highlight=NumberPlane}{\texttt{NumberPlane}}, \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.mobject.geometry.arc.Dot.html?highlight=Dot}{\texttt{Dot}} y \texttt{VMobject -> \ TypableVMobject -> \ \{}\href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.mobject.geometry.line.Line.html#manim.mobject.geometry.line.Line}{\texttt{Line}} y \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.mobject.geometry.arc.Arc.html?highlight=Arc}{\texttt{Arc}}\texttt{\}})
 
-    \item Polígonos. (\texttt{VMobject -> \ Polygram -> \ Polygon})
+    \item Polígonos. (\texttt{VMobject -> \ Polygram -> \ \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.mobject.geometry.polygram.Polygon.html?highlight=Polygon}{Polygon}})
 
-    \item Sistemas coordenados. (\texttt{ParametricFunction -> \ NumberLine}, \texttt{NumberPlane <-} \{\texttt{Axes} y \texttt{CoordinateSystems}\}\footnote{Utilizamos el formato \texttt{Z <-} \{\texttt{W}, \texttt{X} y \texttt{Y}\} para indicar que \texttt{W}, \texttt{X} y \texttt{Y} son supclases (o ``súper clases'') directas de \texttt{Z}.} y \texttt{NumberPlane -> \ ComplexPlane})
+    \item Sistemas coordenados. (\texttt{ParametricFunction -> \ \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.mobject.graphing.number_line.NumberLine.html?highlight=NumberLine}{NumberLine}}, \texttt{\href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.mobject.graphing.coordinate_systems.NumberPlane.html?highlight=NumberPlane}{NumberPlane} <-} \texttt{\{Axes} y \texttt{CoordinateSystems\}}\footnote{Utilizamos el formato \texttt{Z <- \{}\texttt{W}, \texttt{X} y \texttt{Y\}} para indicar que \texttt{W}, \texttt{X} y \texttt{Y} son supclases (o ``superclases'') directas de \texttt{Z}.} y \texttt{NumberPlane -> \ \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.mobject.graphing.coordinate_systems.ComplexPlane.html?highlight=ComplexPlane}{ComplexPlane}})
 
-    \item Curvas y gráficas.
+    \item Curvas y gráficas (\href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.mobject.graphing.functions.ParametricFunction.html#manim.mobject.graphing.functions.ParametricFunction}{\texttt{ParametricFunction}} y \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.mobject.graphing.functions.FunctionGraph.html#manim.mobject.graphing.functions.FunctionGraph}{\texttt{FunctionGraph}}).
 \end{enumerate}
 
 \section{Cámaras móviles en dos dimensiones} \label{Sec: Cámaras móviles en dos dimensiones}
 
 \begin{enumerate}
 
-    \item Movimiento de cámara. (\texttt{Scene -> \ MovingCameraScene} y \texttt{Camera -> \ MovingCamera})
+    \item Movimiento de cámara. (\texttt{Scene -> \ \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.scene.moving_camera_scene.MovingCameraScene.html?highlight=MovingCameraScene}{MovingCameraScene}} y \texttt{Camera -> \ \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.camera.moving_camera.MovingCamera.html?highlight=MovingCamera}{MovingCamera}})
 
-    \item Acercamiento y alejamiento de cámara. (\texttt{MovingCameraScene -> \ ZoomedScene}) 
+    \item Acercamiento y alejamiento de cámara. (\texttt{MovingCameraScene -> \ \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.scene.zoomed_scene.ZoomedScene.html?highlight=ZoomedScene}{ZoomedScene}}) 
 
-    \item Múltiples cámaras. (\texttt{MovingCamera -> \ MultiCamera})
+    \item Múltiples cámaras. (\texttt{MovingCamera -> \ \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.camera.multi_camera.MultiCamera.html?highlight=MultiCamera}{MultiCamera}})
 \end{enumerate}
 
 \section{Escenas vectoriales en dos dimensiones} \label{Sec: Escenas vectoriales en dos dimensiones}
 
 \begin{enumerate}
 
-\item Flechas y vectores flecha. (\texttt{Line -> \ Arrow ->} \{\texttt{DoubleArrow} y \texttt{Vector}\})
+    \item Flechas y vectores flecha. (\texttt{Line -> \ \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.mobject.geometry.line.Arrow.html?highlight=Arrow}{Arrow} ->} \texttt{\{DoubleArrow} y \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.mobject.geometry.line.Vector.html?highlight=Vector}{\texttt{Vector}}\texttt{\}})
 
-\item Escenas vectoriales. (\texttt{Scene -> \ VectorScene})
+    \item Escenas vectoriales. (\texttt{Scene -> \ \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.scene.vector_space_scene.VectorScene.html?highlight=VectorScene}{VectorScene}})
 
-\item Transformaciones lineales. (\texttt{VectorScene -> \ LinearTransformationScene})
+    \item Transformaciones lineales. (\texttt{VectorScene -> \ \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.scene.vector_space_scene.LinearTransformationScene.html?highlight=LinearTransformationScene}{LinearTransformationScene}})
 
-\item Campos vectoriales. (\texttt{VMobject -> \ SVGPathMobject -> \ VectorField ->} \{\texttt{StreamLines} y \texttt{ArrowVectorField}\})
+    \item Campos vectoriales. (\texttt{VMobject -> \ SVGPathMobject -> \ VectorField -> \ \{}\href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.mobject.vector_field.StreamLines.html?highlight=StreamLines}{\texttt{StreamLines}} y \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.mobject.vector_field.ArrowVectorField.html?highlight=ArrowVectorField}{\texttt{ArrowVectorField}}\texttt{\}})
 \end{enumerate}
 
 \section{Escenas en tres dimensiones} \label{Sec: Escenas en tres dimensiones}
 
 \begin{enumerate}
 
-    \item Escena y cámara tridimensionales (\texttt{Scene -> \ ThreeDScene} y \texttt{Camera -> \ ThreeDCamera})
+    \item Escena y cámara tridimensionales (\texttt{Scene -> \ \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.scene.three_d_scene.ThreeDScene.html?highlight=ThreeDScene}{ThreeDScene}} y \texttt{Camera -> \ \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.camera.three_d_camera.ThreeDCamera.html?highlight=ThreeDCamera}{ThreeDCamera}})
 
-    \item Puntos, curvas y superficies en 3D.
+    \item Puntos, curvas y superficies en 3D. (\href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.mobject.three_d.three_dimensions.Dot3D.html?highlight=Dot3D}{\texttt{Dot3D}}, \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.mobject.graphing.functions.ParametricFunction.html?highlight=ParametricFunction#threedparametricspring}{\texttt{ParametricFunction}} y \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.mobject.three_d.three_dimensions.Surface.html?highlight=Curve3D}{\texttt{Surface}})
 
-    \item Líneas y flechas en 3D.
+    \item Líneas y flechas en 3D (\href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.mobject.three_d.three_dimensions.Line3D.html?highlight=Line3D}{\texttt{Lined3D}} y \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.mobject.three_d.three_dimensions.Arrow3D.html?highlight=Arrow3D}{\texttt{Arrow3D}}).
 
     \item Texto en 3D.
+\end{enumerate}
+
+\section{Animaciones especiales} \label{Sec: Animaciones especiales}
+
+\begin{enumerate}
+
+    \item \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.animation.transform.html#module-manim.animation.transform}{Transformaciones}. 
+
+    \item \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.animation.updaters.html#module-manim.animation.updaters}{Actualizadores}.
+
+    \item Animación de grupos. (\texttt{Animation -> \ AnimationGroup -> \ TransformMatchingAbstractBase} \texttt{\{-> \\ \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.animation.transform_matching_parts.TransformMatchingShapes.html?highlight=TransformMatchingShapes}{TransformMatchingShapes}} y \texttt{-> \ \href{https://docs.manim.community/en/v0.16.0.post0/reference/manim.animation.transform_matching_parts.TransformMatchingTex.html?highlight=TransformMatchingTex}{TransformMatchingTex}\}})
+
 \end{enumerate}
 
 \section*{Bibliografía básica} \label{Sec: Bibliografía básica}
@@ -179,9 +193,9 @@ Aprender a visualizar y animar conceptos matemáticos de forma precisa utilizand
 
 \begin{enumerate}
 
-    \item Repositorio de GitHub \href{https://github.com/animathica/seminario}{animathica/seminario}.
+\item Lista de reproducción \href{https://www.youtube.com/watch?v=-VJ7h8-GbHU&list=PL91agCMqt_mfPlTgR8zmguMZIpGV0Jflj&ab_channel=Animathica}{\emph{Seminario Animathica (de Animación Programática)}} del canal de YouTube ''\href{https://www.youtube.com/channel/UCzkyH2bxpesubzc87VxqDiA}{Animathica}'' y repositorio de GitHub \href{https://github.com/animathica/seminario}{animathica/seminario}.
 
-    \item Lista de reproducción \href{https://www.youtube.com/playlist?list=PLcjmqHFN9VeMC9znnNiRMv3nqZv-bU9Fo}{\emph{Tutorial de Manim en español}} del canal de YouTube ``El teorema de Beethoven''.
+\item Lista de reproducción \href{https://www.youtube.com/playlist?list=PLcjmqHFN9VeMC9znnNiRMv3nqZv-bU9Fo}{\emph{Tutorial de Manim en español}} del canal de YouTube ``\href{https://www.youtube.com/channel/UCmFww1CGIFsvujZ0zNzcLQw}{El teorema de Beethoven}''.
 
     \item \href{https://www.python.org/doc/}{Documentación de Python}.
 
