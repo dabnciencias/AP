@@ -1,7 +1,7 @@
 # AP
 Repositorio de mi curso (tentativo) de Animación Programática en la Facultad de Ciencias (UNAM).
 
-![](https://github.com/dabnciencias/AP/AP_2023-I.gif)
+![](https://github.com/dabnciencias/AP/blob/main/AP_2023-I.gif)
 
 ## ¿Cómo puedo ejecutar los _notebooks_ del curso desde mi computadora?
 
